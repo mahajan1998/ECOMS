@@ -162,12 +162,12 @@ public class Login extends javax.swing.JFrame {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=(Connection)
-                    DriverManager.getConnection("jdbc:mysql://localhost:3306/ECOMS","root","akshit");
+                    DriverManager.getConnection("jdbc:mysql://localhost:3306/ecoms","root","akshit");
             Statement st=null;
             ResultSet rs=null;
             String user=jTextField1.getText();
             String pwd=jPasswordField1.getText();
-            String sql="Select email,password from Signup;";
+            String sql="Select email,password from signup;";
             st=con.createStatement();
             rs=st.executeQuery(sql);
             int ch = 0;
@@ -183,7 +183,7 @@ public class Login extends javax.swing.JFrame {
                 if(ch == 1)
                 {
                  this.setVisible(false);
-                 new Menu().setVisible(true);  
+                 new FacultyMenu().setVisible(true);  
                 }
             else
                 JOptionPane.showMessageDialog(this,"Wrong User Name & Password");
